@@ -9,7 +9,7 @@ import (
 	"os/user"
 	"strings"
 
-	"github.com/jh125486/CSCE4600/Project2/builtins"
+	"github.com/andym1125/go-shell/builtins"
 )
 
 func main() {
@@ -63,6 +63,10 @@ func printPrompt(w io.Writer) error {
 	return err
 }
 
+func HandleInput(w io.Writer, exit chan<- struct{}, args ...string) error {
+	return handleInput(w, strings.Join(args, " "), exit)
+}
+
 func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 	// Remove trailing spaces.
 	input = strings.TrimSpace(input)
@@ -78,6 +82,22 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 		return builtins.ChangeDirectory(args...)
 	case "env":
 		return builtins.EnvironmentVariables(w, args...)
+	case "pwd":
+		return executeCommand(name, args...) //TODO FOCUS
+	case "history":
+		return executeCommand(name, args...) //TODO
+	case "echo":
+		return executeCommand(name, args...) //TODO FOCUS
+	case "alias":
+		return executeCommand(name, args...) //TODO
+	case "hup":
+		return executeCommand(name, args...) //TODO FOCUS
+	case "printenv":
+		return executeCommand(name, args...) //TODO
+	case "repeat":
+		return executeCommand(name, args...) //TODO FOCUS
+	case "shift":
+		return executeCommand(name, args...) //TODO FOCUS
 	case "exit":
 		exit <- struct{}{}
 		return nil

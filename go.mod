@@ -1,4 +1,4 @@
-module github.com/andym1125/CSCE4600
+module github.com/andym1125/go-shell
 
 go 1.19
 
