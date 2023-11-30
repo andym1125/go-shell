@@ -75,7 +75,7 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 	// Split the input separate the command name and the command arguments.
 	args := strings.Split(input, " ")
 	name, args := args[0], args[1:]
-	var err error = nil
+	var err error
 
 	// Check for built-in commands.
 	// New builtin commands should be added here. Eventually this should be refactored to its own func.
@@ -95,7 +95,7 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 	case "export":
 		err = builtins.Export(w, args...) //zsh version
 	case "sysrun":
-		err = executeCommand(args[0], args[1:]...) //TODO
+		err = executeCommand(args[0], args[1:]...) //convenience builtin to run commands directly on system
 	case "exit":
 		exit <- struct{}{}
 		err = nil
@@ -103,7 +103,7 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 		err = executeCommand(name, args...)
 	}
 
-	writeHistory(name + " " + strings.Join(args, " "))
+	err = fmt.Errorf("%w: %w", err, writeHistory(name+" "+strings.Join(args, " ")))
 	return err
 }
 
@@ -111,7 +111,6 @@ func initHistory() {
 	histfile := os.Getenv("HISTFILE")
 	if histfile == "" {
 		os.Setenv("HISTFILE", "./.shell/history.txt")
-		histfile = "./.shell/history.txt"
 	}
 }
 
