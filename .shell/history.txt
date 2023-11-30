@@ -10,3 +10,10 @@
 9
 git add *
 git commit -am "history and export"
+exit 
+exit 
+exit 
+exit 
+exit 
+exit 
+exit 

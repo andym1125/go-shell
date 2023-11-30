@@ -103,8 +103,11 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 		err = executeCommand(name, args...)
 	}
 
-	err = fmt.Errorf("%w: %w", err, writeHistory(name+" "+strings.Join(args, " ")))
-	return err
+	werr := writeHistory(name + " " + strings.Join(args, " "))
+	if err != nil {
+		return fmt.Errorf("%w: %w", err, werr)
+	}
+	return werr
 }
 
 func initHistory() {

@@ -1,3 +1,13 @@
+https://stackoverflow.com/questions/10516662/how-to-measure-test-coverage-in-go
+
+
+## Testing and code coverage
+
+```bash
+go test -coverprofile covermain.out && go tool cover -html=covermain.out 
+go test -coverprofile coverbuiltin.out && go tool cover -html=coverbuiltin.out 
+```
+
 # Project 2: Shell Builtins
 
 ## Description
