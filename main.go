@@ -18,6 +18,7 @@ func main() {
 }
 
 func runLoop(r io.Reader, w, errW io.Writer, exit chan struct{}) {
+	initHistory()
 	var (
 		input    string
 		err      error
@@ -74,36 +75,64 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 	// Split the input separate the command name and the command arguments.
 	args := strings.Split(input, " ")
 	name, args := args[0], args[1:]
+	var err error = nil
 
 	// Check for built-in commands.
 	// New builtin commands should be added here. Eventually this should be refactored to its own func.
 	switch name {
 	case "cd":
-		return builtins.ChangeDirectory(args...)
+		err = builtins.ChangeDirectory(args...)
 	case "env":
-		return builtins.EnvironmentVariables(w, args...)
+		err = builtins.EnvironmentVariables(w, args...)
 	case "pwd":
-		return builtins.PrintWorkingDir(w, args...) //bash versions
+		err = builtins.PrintWorkingDir(w, args...) //bash versions
 	case "history":
-		return executeCommand(name, args...) //TODO
+		err = builtins.History(w, args...) //csh version
 	case "echo":
-		return builtins.Echo(w, args...) //csh version
-	case "alias":
-		return executeCommand(name, args...) //TODO
-	case "hup":
-		return executeCommand(name, args...) //TODO FOCUS
-	case "printenv":
-		return executeCommand(name, args...) //TODO
+		err = builtins.Echo(w, args...) //csh version
 	case "repeat":
-		return builtins.RepeatCommand(w, exit, handleInput, args...) //csh version
-	case "shift":
-		return executeCommand(name, args...) //TODO FOCUS
+		err = builtins.RepeatCommand(w, exit, handleInput, args...) //csh version
+	case "export":
+		err = builtins.Export(w, args...) //zsh version
+	case "sysrun":
+		err = executeCommand(args[0], args[1:]...) //TODO
 	case "exit":
 		exit <- struct{}{}
-		return nil
+		err = nil
+	default:
+		err = executeCommand(name, args...)
 	}
 
-	return executeCommand(name, args...)
+	writeHistory(name + " " + strings.Join(args, " "))
+	return err
+}
+
+func initHistory() {
+	histfile := os.Getenv("HISTFILE")
+	if histfile == "" {
+		os.Setenv("HISTFILE", "./.shell/history.txt")
+		histfile = "./.shell/history.txt"
+	}
+}
+
+func writeHistory(input string) error {
+	histfile := os.Getenv("HISTFILE")
+	if histfile == "" {
+		os.Setenv("HISTFILE", "./.shell/history.txt")
+		histfile = "./.shell/history.txt"
+	}
+
+	// Open the file for appending.
+	f, err := os.OpenFile(histfile, os.O_APPEND|os.O_WRONLY, 0644)
+	if err != nil {
+		return fmt.Errorf("%w", err)
+	}
+	defer f.Close()
+
+	// Write the input to the file.
+	_, err = fmt.Fprintln(f, input)
+
+	return err
 }
 
 func executeCommand(name string, arg ...string) error {
