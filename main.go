@@ -83,11 +83,11 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 	case "env":
 		return builtins.EnvironmentVariables(w, args...)
 	case "pwd":
-		return executeCommand(name, args...) //TODO FOCUS
+		return builtins.PrintWorkingDir(w, args...) //bash versions
 	case "history":
 		return executeCommand(name, args...) //TODO
 	case "echo":
-		return executeCommand(name, args...) //TODO FOCUS
+		return builtins.Echo(w, args...) //csh version
 	case "alias":
 		return executeCommand(name, args...) //TODO
 	case "hup":
@@ -95,7 +95,7 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 	case "printenv":
 		return executeCommand(name, args...) //TODO
 	case "repeat":
-		return executeCommand(name, args...) //TODO FOCUS
+		return builtins.RepeatCommand(w, exit, handleInput, args...) //csh version
 	case "shift":
 		return executeCommand(name, args...) //TODO FOCUS
 	case "exit":
