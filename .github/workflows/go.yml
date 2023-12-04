@@ -30,4 +30,4 @@ jobs:
     - name: Test
       run: go test -v ./...
       env:
-        HISTFILE: /dev/null
+        HISTFILE: /home/runner/work/go-shell/go-shell/builtins/historytest.txt
