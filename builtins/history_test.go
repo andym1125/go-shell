@@ -15,7 +15,7 @@ import (
 // Feel free to change it during local testing
 var ROOTED_HISTFILE = "/Users/andy/Documents/workshop/CSCE4600/Project2/builtins/historytest.txt"
 
-func TestRepeat(t *testing.T) {
+func TestHistory(t *testing.T) {
 	type args struct {
 		args []string
 	}
@@ -68,6 +68,9 @@ func TestRepeat(t *testing.T) {
 	if os.Getenv("HISTFILE") != "" {
 		ROOTED_HISTFILE = os.Getenv("HISTFILE")
 	}
+
+	os.Remove(ROOTED_HISTFILE)
+	os.WriteFile(ROOTED_HISTFILE, []byte("0\n1\n2\n"), 0644)
 
 	for _, tt := range tests {
 		fmt.Print(os.Getwd())
