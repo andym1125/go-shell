@@ -20,6 +20,9 @@ jobs:
       uses: actions/setup-go@v4
       with:
         go-version: '1.20'
+
+    - name: Set up needed files
+      run: mkdir /Users/andy/Documents/workshop/CSCE4600/Project2/builtins/historytest.txt
                   
 
     - name: Run golangci-lint

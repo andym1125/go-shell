@@ -11,6 +11,8 @@ import (
 	"github.com/andym1125/go-shell/builtins"
 )
 
+const ROOTED_HISTFILE = "/Users/andy/Documents/workshop/CSCE4600/Project2/builtins/historytest.txt"
+
 func TestRepeat(t *testing.T) {
 	type args struct {
 		args []string
@@ -64,7 +66,7 @@ func TestRepeat(t *testing.T) {
 	for _, tt := range tests {
 		fmt.Print(os.Getwd())
 		if !tt.unsetEnv {
-			os.Setenv("HISTFILE", "/Users/andy/Documents/workshop/CSCE4600/Project2/builtins/historytest.txt")
+			os.Setenv("HISTFILE", ROOTED_HISTFILE)
 		} else {
 			os.Unsetenv("HISTFILE")
 		}
