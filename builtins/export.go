@@ -7,6 +7,9 @@ import (
 )
 
 func Export(w io.Writer, args ...string) error {
+	if len(args) != 1 {
+		return ErrInvalidArgCount
+	}
 
 	keyval := strings.Split(args[0], "=")
 	if len(keyval) != 2 {

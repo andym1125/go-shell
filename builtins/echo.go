@@ -8,6 +8,11 @@ import (
 
 func Echo(w io.Writer, args ...string) error {
 
+	if len(args) == 0 {
+		_, err := fmt.Fprintln(w, "")
+		return err
+	}
+
 	r := args[0] == "-n"
 	if r {
 		args = args[1:]

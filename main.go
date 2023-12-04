@@ -64,10 +64,6 @@ func printPrompt(w io.Writer) error {
 	return err
 }
 
-func HandleInput(w io.Writer, exit chan<- struct{}, args ...string) error {
-	return handleInput(w, strings.Join(args, " "), exit)
-}
-
 func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 	// Remove trailing spaces.
 	input = strings.TrimSpace(input)

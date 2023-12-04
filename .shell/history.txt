@@ -17,3 +17,464 @@ exit
 exit 
 exit 
 exit 
+exit 
+exit 
+exit 
+exit 
+exit 
+exit 
+exit 
+exit 
+exit 
+exit 
+exit 
+exit 
+exit 
+exit 
+exit 
+exit 
+exit 
+exit 
+exit 
+exit 
+exit 
+export foo=bar
+export foo=bar
+export foo=bar
+export foo=bar
+export foo=bar
+export foo=bar
+export foo=bar
+exit 
+export foo=bar
+export foo=bar
+export foo=bar
+export foo=bar
+export foo=bar
+export foo=bar
+export foo=bar
+exit 
+exit 
+export foo=bar
+export foo=bar
+export foo=bar
+export foo=bar
+export foo=bar
+export foo=bar
+export foo=bar
+exit 
+cd .
+env 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+printf 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+printf 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 
+cd .
+ls 
+env 
+pwd 
+history 
+echo repeater
+echo repeater
+repeat 2 echo repeater
+sysrun echo sysrun
+echo hello
+export foo=bar
+exit 
+exit 

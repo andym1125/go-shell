@@ -2,16 +2,37 @@ package main
 
 import (
 	"bytes"
-	"github.com/stretchr/testify/require"
 	"io"
+	"os"
 	"strings"
 	"testing"
 	"testing/iotest"
 	"time"
+
+	"github.com/stretchr/testify/require"
 )
+
+func Test_handleInput(t *testing.T) {
+	// t.Parallel()
+	exit := make(chan struct{}, 2)
+	w := &bytes.Buffer{}
+	test := []string{"cd .", "ls", "env", "pwd", "history", "repeat 2 echo repeater", "sysrun echo sysrun", "echo hello", "export foo=bar"}
+	for _, tt := range test {
+		t.Run(tt, func(t *testing.T) {
+			// t.Parallel() //Removed bc it was preventing code coverage from working for some reason
+			err := handleInput(w, tt, exit)
+			require.NoError(t, err)
+
+		})
+	}
+
+	err := handleInput(w, "exit", exit)
+	require.NoError(t, err)
+}
 
 func Test_runLoop(t *testing.T) {
 	t.Parallel()
+	os.Setenv("HISTFILE", "")
 	exitCmd := strings.NewReader("exit\n")
 	type args struct {
 		r io.Reader
@@ -57,4 +78,16 @@ func Test_runLoop(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestMetricNoLongerUseful(t *testing.T) {
+	exit := make(chan struct{}, 2)
+	w := &bytes.Buffer{}
+	r := strings.NewReader("exit\n")
+	os.Setenv("HISTFILE", " ")
+
+	runLoop(r, w, w, exit)
+	exit <- struct{}{}
+
+	require.Error(t, handleInput(w, "printf", make(chan struct{}, 2)))
 }
