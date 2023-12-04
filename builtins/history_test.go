@@ -11,7 +11,9 @@ import (
 	"github.com/andym1125/go-shell/builtins"
 )
 
-const ROOTED_HISTFILE = "/Users/andy/Documents/workshop/CSCE4600/Project2/builtins/historytest.txt"
+// This is a hack to get around odd env issues with testing. Should be ignored during GH Action testing
+// Feel free to change it during local testing
+var ROOTED_HISTFILE = "/Users/andy/Documents/workshop/CSCE4600/Project2/builtins/historytest.txt"
 
 func TestRepeat(t *testing.T) {
 	type args struct {
@@ -61,6 +63,10 @@ func TestRepeat(t *testing.T) {
 			unsetEnv: true,
 			wantErr:  errors.New("open : no such file or directory: HISTFILE not set. You can set it via `export HISTFILE=/path/to/file`"),
 		},
+	}
+
+	if os.Getenv("HISTFILE") != "" {
+		ROOTED_HISTFILE = os.Getenv("HISTFILE")
 	}
 
 	for _, tt := range tests {
