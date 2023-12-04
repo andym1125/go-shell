@@ -33,7 +33,7 @@ func TestRepeat(t *testing.T) {
 		{
 			name: "test history w both args",
 			args: args{
-				args: []string{"-rh"},
+				args: []string{"-rh", "3"},
 			},
 			wantText: "2\n1\n0\n",
 		},
@@ -47,14 +47,14 @@ func TestRepeat(t *testing.T) {
 		{
 			name: "test history w reverse",
 			args: args{
-				args: []string{"-r"},
+				args: []string{"-r", "3"},
 			},
 			wantText: "2 2\n1 1\n0 0\n",
 		},
 		{
 			name: "test history w no nums",
 			args: args{
-				args: []string{"-h"},
+				args: []string{"-h", "3"},
 			},
 			wantText: "0\n1\n2\n",
 		},
