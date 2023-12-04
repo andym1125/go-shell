@@ -70,7 +70,9 @@ func TestHistory(t *testing.T) {
 	}
 
 	os.Remove(ROOTED_HISTFILE)
-	os.WriteFile(ROOTED_HISTFILE, []byte("0\n1\n2\n"), 0644)
+	if err := os.WriteFile(ROOTED_HISTFILE, []byte("0\n1\n2\n"), 0644); err != nil {
+		t.Fatalf("Failed to write to history file: %v", err)
+	}
 
 	for _, tt := range tests {
 		fmt.Print(os.Getwd())
